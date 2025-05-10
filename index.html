@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoanaBlast: Hybrid Wind-Water Energy for Egypt</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-3 fw-bold" data-aos="fade-up">MoanaBlast: Hybrid Wind-Water Energy for Egypt</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">363J in 5 minutes. 90% above target. Zero emissions.</p>
+                    <a href="#demo-video" class="btn btn-primary btn-lg mt-4" data-aos="fade-up" data-aos-delay="400">Watch our Test Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section id="problem-solution" class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Problem Side -->
+                <div class="col-md-6" data-aos="fade-right">
+                    <h2 class="mb-4">Egypt's Fossil Fuel Crisis</h2>
+                    <div class="stat-container">
+                        <h3 class="text-danger">In 2023, Egypt's
+                            fossil fuel-based electricity generation
+                            jumped to a historic height of 183.93
+                            billion kWh more than double the global
+                            average</h3>
+                        <canvas id="energyChart" width="520" height="400"></canvas>
+                    </div>
+                </div>
+                <!-- Solution Side -->
+                <div class="col-md-6" data-aos="fade-left">
+                    <h2 class="mb-4">Our Hybrid Solution</h2>
+                    <div class="solution-icons">
+                        <div class="icon-item" data-tooltip="Savonius Wind Turbine">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="icon-item" data-tooltip="Kaplan Water Turbine">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="icon-item" data-tooltip="Battery Storage">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prototype Showcase Section -->
+    <section id="prototype" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- How It Works Card -->
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">How It Works</h3>
+                            <img src="turbine-rotation.gif" alt="Turbine Rotation" class="img-fluid mb-3">
+                            <ul class="list-unstyled">
+                                <li>✓ 3D-printed parts</li>
+                                <li>✓ Syringe water simulation</li>
+                                <li>✓ Low-cost materials</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Performance Card -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Performance</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Trial</th>
+                                        <th>Energy Output</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Initial</td>
+                                        <td>48J</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Final</td>
+                                        <td>360J</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Safety Card -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Safety</h3>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-shield-alt"></i> Insulated wires</li>
+                                <li><i class="fas fa-thermometer-half"></i> Thermal checks</li>
+                                <li><i class="fas fa-hand-paper"></i> Safety gloves</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Impact Section -->
+    <section id="team-impact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="mb-4">Our Team & Impact</h2>
+                    <div class="team-grid">
+                        <!-- Team members will be added here -->
+                    </div>
+                    <div class="achievement-box mt-5" data-aos="fade-up">
+                        <h3>Key Achievement</h3>
+                        <p class="lead">Surpassed target by 9x using Egypt's Fab Lab</p>
+                    </div>
+                    <div class="environmental-calculator mt-5" data-aos="fade-up">
+                        <h3>Environmental Impact</h3>
+                        <div class="calculator-box">
+                            <p>Deploying 100 units = Power 50 homes + save 10 tons CO2/month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section id="cta" class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Join Egypt's Energy Revolution</h2>
+            <div class="cta-buttons">
+                <a href="portfolio.pdf" class="btn btn-light btn-lg me-3">Download Portfolio (PDF)</a>
+                <a href="mailto:team@moanablast.com" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
