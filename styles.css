@@ -156,10 +156,6 @@ footer {
     text-decoration: none;
 }
 
-#energyChart{
-    width:520;
-    height:400;
-}
 
 #graph{
     display: none;

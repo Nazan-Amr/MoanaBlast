@@ -182,11 +182,11 @@ if (demoVideoBtn) {
 
 // Add team members dynamically
 const teamMembers = [
-    { name: 'Jana Khaled', role: 'Project Lead', image: './Images&Videos/jana.jpeg' },
-    { name: 'Lama Esmat', role: 'Technical Lead', image: './Images&Videos/lama.jpeg' },
-    { name: 'Nazan Amr', role: 'Design Lead', image: './Images&Videos/nazan.jpeg' },
-    { name: 'MennatAllah Wael', role: 'Design Lead', image: './Images&Videos/menna.jpeg' },
-    { name: 'Rana Tarek', role: 'Design Lead', image: './Images&Videos/rana.jpeg' },
+    { name: 'Jana Khaled', image: './Images&Videos/jana.jpeg' },
+    { name: 'Lama Esmat',  image: './Images&Videos/lama.jpeg' },
+    { name: 'Nazan Amr',  image: './Images&Videos/nazan.jpeg' },
+    { name: 'MennatAllah Wael', image: './Images&Videos/menna.jpeg' },
+    { name: 'Rana Tarek', image: './Images&Videos/rana.jpeg' },
 ];
 
 const teamGrid = document.querySelector('.team-grid');
@@ -197,7 +197,6 @@ if (teamGrid) {
         memberElement.innerHTML = `
             <img src="${member.image}" alt="${member.name}" class="img-fluid rounded-circle mb-3">
             <h4>${member.name}</h4>
-            <p class="text-muted">${member.role}</p>
         `;
         teamGrid.appendChild(memberElement);
     });
