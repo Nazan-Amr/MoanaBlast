@@ -156,6 +156,15 @@ footer {
     text-decoration: none;
 }
 
+#energyChart{
+    width:520;
+    height:400;
+}
+
+#graph{
+    display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
@@ -213,6 +222,12 @@ footer {
 
 @media (max-width: 450px) {
     /* Hero */
+    #energyChart{
+       display: none;
+    }
+    #graph{
+        display: block;
+    }
     .hero-section {
         height: auto;
         padding: 4rem 1rem;
