@@ -211,6 +211,65 @@ footer {
     }
 }
 
+@media (max-width: 450px) {
+    /* Hero */
+    .hero-section {
+        height: auto;
+        padding: 4rem 1rem;
+    }
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+
+    /* Problem & Solution */
+    .stat-container {
+        padding: 1rem;
+    }
+    .solution-icons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .solution-icon {
+        max-width: 120px;
+    }
+
+    /* Prototype Cards */
+    .card-body {
+        padding: 1rem;
+    }
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+
+    /* Team & Impact */
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+    .achievement-box .lead,
+    .calculator-box p {
+        font-size: 0.9rem;
+    }
+
+    /* CTA Buttons */
+    .cta-buttons {
+        flex-direction: column;
+    }
+    .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+}
+
 /* Animation Classes */
 .fade-in {
     animation: fadeIn 1s ease-in;
