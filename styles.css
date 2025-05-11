@@ -11,13 +11,14 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    padding-bottom: 60px; /* Add padding for footer */
 }
 
 /* Hero Section */
 .hero-section {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('hero-bg.jpg') no-repeat center center;
+                url('./Images&Videos/background.jpeg') no-repeat center center;
     background-size: cover;
     position: relative;
 }
@@ -38,40 +39,27 @@ body {
     display: flex;
     justify-content: space-around;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .icon-item {
-    font-size: 3rem;
-    color: var(--primary-color);
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
+    margin: 10px;
+    text-align: center;
 }
 
-.icon-item:hover {
+.solution-icon {
+    max-width: 200px;
+    max-height: 250px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.icon-item:hover .solution-icon {
     transform: scale(1.1);
-}
-
-.icon-item[data-tooltip]:before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.5rem;
-    background-color: var(--dark-color);
-    color: white;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-}
-
-.icon-item:hover[data-tooltip]:before {
-    opacity: 1;
-    visibility: visible;
 }
 
 /* Prototype Showcase Section */
@@ -79,6 +67,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
 }
 
 .card:hover {
@@ -94,9 +83,15 @@ body {
 /* Team & Impact Section */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
 .achievement-box {
@@ -114,16 +109,51 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.calculator-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
 /* Call-to-Action Section */
 .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 2rem;
+    gap: 1rem;
 }
 
 .btn {
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1.5rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Footer */
+footer {
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    text-decoration: none;
 }
 
 /* Responsive Design */
@@ -143,7 +173,41 @@ body {
     }
 
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    footer {
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calculator-box p, 
+    .achievement-box .lead {
+        font-size: 0.9rem;
     }
 }
 
@@ -161,4 +225,4 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-} 
+}

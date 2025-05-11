@@ -6,132 +6,132 @@ AOS.init({
 
 // Energy Chart Configuration
 const canvas = document.getElementById('energyChart');
-        const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
-        // Data setup (using sample values - replace with actual data)
-        const data = [
-            { year: 2016, value: 174 },
-            { year: 2017, value: 181 },
-            { year: 2018, value: 182 },
-            { year: 2019, value: 178 },
-            { year: 2020, value: 173 },
-            { year: 2021, value: 177 },
-            { year: 2022, value: 182 },
-            { year: 2023, value: 184 }
-        ];
+// Data setup (using sample values - replace with actual data)
+const data = [
+    { year: 2016, value: 174 },
+    { year: 2017, value: 181 },
+    { year: 2018, value: 182 },
+    { year: 2019, value: 178 },
+    { year: 2020, value: 173 },
+    { year: 2021, value: 177 },
+    { year: 2022, value: 182 },
+    { year: 2023, value: 184 }
+];
 
-        // Chart configuration
-        const config = {
-            margin: { top: 60, right: 40, bottom: 60, left: 80 },
-            gridColor: '#ddd',
-            lineColor: '#e74c3c',
-            pointRadius: 5,
-            fontSize: 14,
-            yLabels: [172, 174, 176, 178, 180, 182, 184, 186]  // Custom y-axis labels
-        };
+// Chart configuration
+const config = {
+    margin: { top: 60, right: 40, bottom: 60, left: 80 },
+    gridColor: '#ddd',
+    lineColor: '#e74c3c',
+    pointRadius: 5,
+    fontSize: 14,
+    yLabels: [172, 174, 176, 178, 180, 182, 184, 186]  // Custom y-axis labels
+};
 
-        // Calculate drawing area
-        const chartWidth = canvas.width - config.margin.left - config.margin.right;
-        const chartHeight = canvas.height - config.margin.top - config.margin.bottom;
+// Calculate drawing area
+const chartWidth = canvas.width - config.margin.left - config.margin.right;
+const chartHeight = canvas.height - config.margin.top - config.margin.bottom;
 
-        // Scaling factors
-        const xScale = chartWidth / (data.length - 1);
-        const yMin = Math.min(...config.yLabels);
-        const yMax = Math.max(...config.yLabels);
-        const yRange = yMax - yMin;
-        const yScale = chartHeight / yRange;
+// Scaling factors
+const xScale = chartWidth / (data.length - 1);
+const yMin = Math.min(...config.yLabels);
+const yMax = Math.max(...config.yLabels);
+const yRange = yMax - yMin;
+const yScale = chartHeight / yRange;
 
-        // Set up high-DPI canvas
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = canvas.offsetWidth * dpr;
-        canvas.height = canvas.offsetHeight * dpr;
-        ctx.scale(dpr, dpr);
+// Set up high-DPI canvas
+const dpr = window.devicePixelRatio || 1;
+canvas.width = canvas.offsetWidth * dpr;
+canvas.height = canvas.offsetHeight * dpr;
+ctx.scale(dpr, dpr);
 
-        ctx.translate(config.margin.left, config.margin.top);
+ctx.translate(config.margin.left, config.margin.top);
 
-        // Draw grid
-        ctx.strokeStyle = config.gridColor;
-        ctx.beginPath();
-        
-        // Vertical grid
-        data.forEach((d, i) => {
-            const x = i * xScale;
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, chartHeight);
-        });
+// Draw grid
+ctx.strokeStyle = config.gridColor;
+ctx.beginPath();
 
-        // Horizontal grid (using custom yLabels)
-        config.yLabels.forEach(y => {
-            const yPos = chartHeight - (y - yMin) * yScale;
-            ctx.moveTo(0, yPos);
-            ctx.lineTo(chartWidth, yPos);
-        });
-        ctx.stroke();
+// Vertical grid
+data.forEach((d, i) => {
+    const x = i * xScale;
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, chartHeight);
+});
 
-        // Draw axes
-        ctx.strokeStyle = '#000';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        // Y-axis
-        ctx.moveTo(0, 0);
-        ctx.lineTo(0, chartHeight);
-        // X-axis
-        ctx.moveTo(0, chartHeight);
-        ctx.lineTo(chartWidth, chartHeight);
-        ctx.stroke();
+// Horizontal grid (using custom yLabels)
+config.yLabels.forEach(y => {
+    const yPos = chartHeight - (y - yMin) * yScale;
+    ctx.moveTo(0, yPos);
+    ctx.lineTo(chartWidth, yPos);
+});
+ctx.stroke();
 
-        // Draw data line
-        ctx.strokeStyle = config.lineColor;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        data.forEach((d, i) => {
-            const x = i * xScale;
-            const y = chartHeight - (d.value - yMin) * yScale;
-            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-        });
-        ctx.stroke();
+// Draw axes
+ctx.strokeStyle = '#000';
+ctx.lineWidth = 2;
+ctx.beginPath();
+// Y-axis
+ctx.moveTo(0, 0);
+ctx.lineTo(0, chartHeight);
+// X-axis
+ctx.moveTo(0, chartHeight);
+ctx.lineTo(chartWidth, chartHeight);
+ctx.stroke();
 
-        // Draw data points
-        ctx.fillStyle = config.lineColor;
-        data.forEach((d, i) => {
-            const x = i * xScale;
-            const y = chartHeight - (d.value - yMin) * yScale;
-            ctx.beginPath();
-            ctx.arc(x, y, config.pointRadius, 0, Math.PI * 2);
-            ctx.fill();
-        });
+// Draw data line
+ctx.strokeStyle = config.lineColor;
+ctx.lineWidth = 3;
+ctx.beginPath();
+data.forEach((d, i) => {
+    const x = i * xScale;
+    const y = chartHeight - (d.value - yMin) * yScale;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+});
+ctx.stroke();
 
-        // Labels
-        ctx.fillStyle = '#000';
-        ctx.font = `${config.fontSize}px Arial`;
-        ctx.textAlign = 'center';
+// Draw data points
+ctx.fillStyle = config.lineColor;
+data.forEach((d, i) => {
+    const x = i * xScale;
+    const y = chartHeight - (d.value - yMin) * yScale;
+    ctx.beginPath();
+    ctx.arc(x, y, config.pointRadius, 0, Math.PI * 2);
+    ctx.fill();
+});
 
-        // X-axis labels
-        data.forEach((d, i) => {
-            const x = i * xScale;
-            ctx.fillText(d.year, x, chartHeight + 35);
-        });
+// Labels
+ctx.fillStyle = '#000';
+ctx.font = `${config.fontSize}px Arial`;
+ctx.textAlign = 'center';
 
-        // Y-axis labels
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'middle';
-        config.yLabels.forEach(y => {
-            const yPos = chartHeight - (y - yMin) * yScale;
-            ctx.fillText(y, -10, yPos);
-        });
+// X-axis labels
+data.forEach((d, i) => {
+    const x = i * xScale;
+    ctx.fillText(d.year, x, chartHeight + 35);
+});
 
-        // Y-axis title
-        ctx.save();
-        ctx.rotate(-Math.PI / 2);
-        ctx.textAlign = 'center';
-        ctx.fillText('Billion Idiowatt-hours', -chartHeight/2, -config.margin.left + 30);
-        ctx.restore();
+// Y-axis labels
+ctx.textAlign = 'right';
+ctx.textBaseline = 'middle';
+config.yLabels.forEach(y => {
+    const yPos = chartHeight - (y - yMin) * yScale;
+    ctx.fillText(y, -10, yPos);
+});
 
-        // Chart title
-        ctx.font = `bold ${config.fontSize + 4}px Arial`;
-        ctx.textAlign = 'center';
-        ctx.fillText("Egypt's Fossil Fuel Power Generation Over Time", 
-                    chartWidth/2, -config.margin.top + 40);
+// Y-axis title
+ctx.save();
+ctx.rotate(-Math.PI / 2);
+ctx.textAlign = 'center';
+ctx.fillText('Billion Kilowatt-hours', -chartHeight/2, -config.margin.left + 30);
+ctx.restore();
+
+// Chart title
+ctx.font = `bold ${config.fontSize + 4}px Arial`;
+ctx.textAlign = 'center';
+ctx.fillText("Egypt's Fossil Fuel Power Generation Over Time", 
+            chartWidth/2, -config.margin.top + 40);
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -158,13 +158,13 @@ if (demoVideoBtn) {
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">MoanaBlast Demo Video</h5>
+                        <h5 class="modal-title">MoanaBlast testplan Video</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
                         <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-                                    title="MoanaBlast Demo" 
+                            <iframe src="https://youtube.com/shorts/G3i1DNUu_TY?feature=share" 
+                                    title="MoanaBlast Test Plan" 
                                     allowfullscreen></iframe>
                         </div>
                     </div>
@@ -182,10 +182,11 @@ if (demoVideoBtn) {
 
 // Add team members dynamically
 const teamMembers = [
-    { name: 'Team Member 1', role: 'Project Lead', image: 'team1.jpg' },
-    { name: 'Team Member 2', role: 'Technical Lead', image: 'team2.jpg' },
-    { name: 'Team Member 3', role: 'Design Lead', image: 'team3.jpg' },
-    // Add more team members as needed
+    { name: 'Jana Khaled', role: 'Project Lead', image: './Images&Videos/jana.jpeg' },
+    { name: 'Lama Esmat', role: 'Technical Lead', image: './Images&Videos/lama.jpeg' },
+    { name: 'Nazan Amr', role: 'Design Lead', image: './Images&Videos/nazan.jpeg' },
+    { name: 'MennatAllah Wael', role: 'Design Lead', image: './Images&Videos/menna.jpeg' },
+    { name: 'Rana Tarek', role: 'Design Lead', image: './Images&Videos/rana.jpeg' },
 ];
 
 const teamGrid = document.querySelector('.team-grid');
@@ -215,4 +216,4 @@ window.addEventListener('scroll', () => {
             element.style.transform = 'translateY(0)';
         }
     });
-}); 
+});
